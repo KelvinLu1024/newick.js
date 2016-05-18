@@ -10,14 +10,14 @@ var parseNewick = function(str) {
     }
     function parseLength() {
 	if (str[ptr] != ':') {
-	    return 1;
+	    return 0;
 	} else {
 	    ptr ++;
 	    var len = "";
 	    while (".1234567890".includes(str[ptr])) {
 		len += str[ptr++];
 	    }
-	    return (len.length > 0) ? parseFloat(len) : 1;
+	    return (len.length > 0) ? parseFloat(len) : 0;
 	}
     }
     function parse() {
