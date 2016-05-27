@@ -24,14 +24,14 @@ var parseNewick = function(str) {
 	var node = {};
 	switch (str[ptr]) {
 	case '(':
-	    node.children = [];
+	    node.subnodes = [];
 	    ptr ++;
 	    do {
-		node.children.push(parse());
+		node.subnodes.push(parse());
 	    } while (str[ptr++] == ',')
 	default:
 	    node.name = parseName();
-	    node.data = { "branch_length" : parseLength() };
+	    node.length = parseLength();
 	}
 	return node;
     }
